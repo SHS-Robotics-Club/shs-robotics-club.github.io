@@ -1,0 +1,15 @@
+jobs:
+  nix-flake-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Nix installer
+      uses: DeterminateSystems/nix-installer-action@main
+    - name: Magic Nix Cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: Flake checker
+      uses: DeterminateSystems/flake-checker-action@main
+'on':
+  push: {}
+  workflow_dispatch: {}
