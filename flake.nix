@@ -40,6 +40,7 @@
             flakeCheck = true;
             programs = {
               actionlint.enable = true;
+              yamlfmt.enable = true;
               nixfmt = {
                 enable = true;
                 package = pkgs.nixfmt-rfc-style;
