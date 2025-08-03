@@ -4,18 +4,18 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: Nix installer
-      uses: DeterminateSystems/nix-installer-action@main
-    - name: Magic Nix Cache
-      uses: DeterminateSystems/magic-nix-cache-action@main
-    - name: Flake checker
-      uses: DeterminateSystems/flake-checker-action@main
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Nix installer
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: Flake checker
+        uses: DeterminateSystems/flake-checker-action@main
     timeout-minutes: 30
 name: 'Nix: Flake Check'
 'on':
   push:
     branches:
-    - main
+      - main
   workflow_dispatch: null

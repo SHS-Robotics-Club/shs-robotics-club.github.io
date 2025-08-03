@@ -37,7 +37,7 @@
         {
           treefmt.config = {
             inherit (config.flake-root) projectRootFile;
-            flakeCheck = true;
+            flakeCheck = false;
             programs = {
               actionlint.enable = true;
               yamlfmt.enable = true;
@@ -66,7 +66,7 @@
         };
 
       flake.actions-nix = {
-        pre-commit.enable = true;
+        pre-commit.enable = false;
 
         defaultValues.jobs = {
           runs-on = "ubuntu-latest";

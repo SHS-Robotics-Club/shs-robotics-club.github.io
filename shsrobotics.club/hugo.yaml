@@ -2,16 +2,13 @@ baseURL: https://shsrobotics.club/
 languageCode: en-us
 title: SHS Robotics Club
 theme: PaperMod
-
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
 minify:
   disableXML: true
   minifyOutput: true
-
 params:
   description: "Seminole High School Robotics Club"
   keywords: [Blog, Portfolio, PaperMod]
