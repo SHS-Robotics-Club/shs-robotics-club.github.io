@@ -1,6 +1,5 @@
 jobs:
   nix-lock-update:
-    name: Update flake.lock
     permissions:
       contents: write
       pull-requests: write
@@ -20,7 +19,7 @@ jobs:
           automated
         pr-title: 'chore: update flake.lock'
     timeout-minutes: 30
-name: Flake Lock Update
+name: 'Nix: Flake Lock'
 'on':
   schedule:
   - cron: 0 8 * * 1,5
