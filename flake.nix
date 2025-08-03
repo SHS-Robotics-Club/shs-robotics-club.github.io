@@ -65,23 +65,41 @@
         };
       flake.actions-nix = {
         pre-commit.enable = true;
-        workflows = {
-          ".github/workflows/nix-flake-check.yaml" = {
-            jobs = {
-              nix-flake-check = {
-                steps = [
-                  {
-                    name = "Checkout repository";
-                    uses = "actions/checkout@v4";
-                  }
-                  {
-                    name = "Nix installer";
-                    uses = "DeterminateSystems/nix-installer-action@main";
-                  }
-                  {
-                    name = "Magic Nix Cache";
-                    uses = "DeterminateSystems/magic-nix-cache-action@main";
-                  }
+        defaultValues.jobs = {
+          runs-on = "ubuntu-latest";
+          timeout-minutes = 30;
+        };
+        workflows =
+          let
+            commonSteps = [
+              {
+                name = "Checkout repository";
+                uses = "actions/checkout@v4";
+              }
+              {
+                name = "Nix installer";
+                uses = "DeterminateSystems/nix-installer-action@main";
+              }
+              {
+                name = "Magic Nix Cache";
+                uses = "DeterminateSystems/magic-nix-cache-action@main";
+              }
+            ];
+          in
+          {
+            ".github/workflows/nix-flake-check.yaml" = {
+              on = {
+                push = {
+                  branches = [ "main" ];
+                };
+                workflow_dispatch = null;
+              };
+              jobs.nix-flake-check = {
+                name = "Flake Check";
+                permissions = {
+                  contents = "read";
+                };
+                steps = commonSteps ++ [
                   {
                     name = "Flake checker";
                     uses = "DeterminateSystems/flake-checker-action@main";
@@ -89,8 +107,33 @@
                 ];
               };
             };
+
+            ".github/workflows/flake-lock-update.yaml" = {
+              name = "Flake Lock Update";
+              on = {
+                schedule = [ { cron = "0 8 * * 1,5"; } ];
+                workflow_dispatch = null;
+              };
+              jobs.nix-lock-update = {
+                name = "Update flake.lock";
+                permissions = {
+                  contents = "write";
+                  pull-requests = "write";
+                };
+                steps = commonSteps ++ [
+                  {
+                    name = "Update flake.lock";
+                    uses = "DeterminateSystems/update-flake-lock@main";
+                    "with" = {
+                      pr-title = "chore: update flake.lock";
+                      pr-labels = "dependencies\nautomated";
+                    };
+                  }
+                ];
+              };
+            };
           };
-        };
       };
+
     };
 }

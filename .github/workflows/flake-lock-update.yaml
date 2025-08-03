@@ -1,0 +1,27 @@
+jobs:
+  nix-lock-update:
+    name: Update flake.lock
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Nix installer
+      uses: DeterminateSystems/nix-installer-action@main
+    - name: Magic Nix Cache
+      uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: Update flake.lock
+      uses: DeterminateSystems/update-flake-lock@main
+      with:
+        pr-labels: |-
+          dependencies
+          automated
+        pr-title: 'chore: update flake.lock'
+    timeout-minutes: 30
+name: Flake Lock Update
+'on':
+  schedule:
+  - cron: 0 8 * * 1,5
+  workflow_dispatch: null
