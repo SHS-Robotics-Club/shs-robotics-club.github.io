@@ -48,9 +48,10 @@
           };
 
           devshells.default = {
-            name = "HUGO Site Development Shell";
-            motd = "MOTD";
+            name = "GOHUGO Dev Shell";
+            motd = "Welcome";
             packages = [
+              pkgs.hugo
               config.treefmt.build.wrapper
             ]
             ++ (pkgs.lib.attrValues config.treefmt.build.programs);
