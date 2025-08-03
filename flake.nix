@@ -2,7 +2,7 @@
   description = "HUGO Static Site Generator";
 
   nixConfig = {
-    extra-substituters = [ "https://cache.nixos.org" ];
+    extra-substituters = ["https://cache.nixos.org"];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
@@ -19,9 +19,12 @@
     actions-nix.url = "github:nialov/actions.nix";
   };
 
-  outputs =
-    inputs@{ flake-parts, systems, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs @ {
+    flake-parts,
+    systems,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import systems;
 
       imports = [
@@ -32,38 +35,38 @@
         inputs.actions-nix.flakeModules.default
       ];
 
-      perSystem =
-        { pkgs, config, ... }:
-        {
-          treefmt.config = {
-            inherit (config.flake-root) projectRootFile;
-            flakeCheck = false;
-            programs = {
-              actionlint.enable = true;
-              yamlfmt.enable = true;
-              nixfmt = {
-                enable = true;
-                package = pkgs.nixfmt-rfc-style;
-              };
-            };
+      perSystem = {
+        pkgs,
+        config,
+        ...
+      }: {
+        treefmt.config = {
+          inherit (config.flake-root) projectRootFile;
+          flakeCheck = false;
+          programs = {
+            actionlint.enable = true;
+            yamlfmt.enable = true;
+            alejandra.enable = true;
           };
+        };
 
-          devshells.default = {
-            name = "GOHUGO Dev Shell";
-            motd = "Welcome";
-            packages = [
+        devshells.default = {
+          name = "GOHUGO Dev Shell";
+          motd = "Welcome";
+          packages =
+            [
               pkgs.hugo
               pkgs.git
               config.treefmt.build.wrapper
             ]
             ++ (pkgs.lib.attrValues config.treefmt.build.programs);
-          };
-
-          pre-commit.settings.hooks.treefmt = {
-            enable = true;
-            package = config.treefmt.build.wrapper;
-          };
         };
+
+        pre-commit.settings.hooks.treefmt = {
+          enable = true;
+          package = config.treefmt.build.wrapper;
+        };
+      };
 
       flake.actions-nix = {
         pre-commit.enable = false;
@@ -73,53 +76,55 @@
           timeout-minutes = 30;
         };
 
-        workflows =
-          let
-            commonSteps = [
-              {
-                name = "Checkout repository";
-                uses = "actions/checkout@v4";
-              }
-              {
-                name = "Nix installer";
-                uses = "DeterminateSystems/nix-installer-action@main";
-              }
-              {
-                name = "Magic Nix Cache";
-                uses = "DeterminateSystems/magic-nix-cache-action@main";
-              }
-            ];
-          in
-          {
-            ".github/workflows/nix-flake-check.yaml" = {
-              name = "Nix: Flake Check";
-              on = {
-                push.branches = [ "main" ];
-                workflow_dispatch = null;
-              };
-              jobs.nix-flake-check = {
-                permissions.contents = "read";
-                steps = commonSteps ++ [
+        workflows = let
+          commonSteps = [
+            {
+              name = "Checkout repository";
+              uses = "actions/checkout@v4";
+            }
+            {
+              name = "Nix installer";
+              uses = "DeterminateSystems/nix-installer-action@main";
+            }
+            {
+              name = "Magic Nix Cache";
+              uses = "DeterminateSystems/magic-nix-cache-action@main";
+            }
+          ];
+        in {
+          ".github/workflows/nix-flake-check.yaml" = {
+            name = "Nix: Flake Check";
+            on = {
+              push.branches = ["main"];
+              workflow_dispatch = null;
+            };
+            jobs.nix-flake-check = {
+              permissions.contents = "read";
+              steps =
+                commonSteps
+                ++ [
                   {
                     name = "Flake checker";
                     uses = "DeterminateSystems/flake-checker-action@main";
                   }
                 ];
-              };
             };
+          };
 
-            ".github/workflows/nix-flake-lock.yaml" = {
-              name = "Nix: Flake Lock";
-              on = {
-                schedule = [ { cron = "0 8 * * 1,5"; } ];
-                workflow_dispatch = null;
+          ".github/workflows/nix-flake-lock.yaml" = {
+            name = "Nix: Flake Lock";
+            on = {
+              schedule = [{cron = "0 8 * * 1,5";}];
+              workflow_dispatch = null;
+            };
+            jobs.nix-lock-update = {
+              permissions = {
+                contents = "write";
+                pull-requests = "write";
               };
-              jobs.nix-lock-update = {
-                permissions = {
-                  contents = "write";
-                  pull-requests = "write";
-                };
-                steps = commonSteps ++ [
+              steps =
+                commonSteps
+                ++ [
                   {
                     name = "Update flake.lock";
                     uses = "DeterminateSystems/update-flake-lock@main";
@@ -129,9 +134,9 @@
                     };
                   }
                 ];
-              };
             };
           };
+        };
       };
     };
 }
