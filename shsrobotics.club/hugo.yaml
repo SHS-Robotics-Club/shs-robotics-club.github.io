@@ -13,25 +13,14 @@ minify:
   minifyOutput: true
 
 params:
-  title: SHS Robotics Club
-  description: "ExampleSite description"
+  description: "Seminole High School Robotics Club"
   keywords: [Blog, Portfolio, PaperMod]
   author: SHS Robotics Club
   defaultTheme: auto # dark, light
-  disableThemeToggle: false
-
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
