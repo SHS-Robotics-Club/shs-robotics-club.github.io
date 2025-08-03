@@ -52,6 +52,7 @@
             motd = "Welcome";
             packages = [
               pkgs.hugo
+              pkgs.git
               config.treefmt.build.wrapper
             ]
             ++ (pkgs.lib.attrValues config.treefmt.build.programs);
