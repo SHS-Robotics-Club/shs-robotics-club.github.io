@@ -2,9 +2,7 @@
   description = "HUGO Static Site Generator";
 
   nixConfig = {
-    extra-substituters = [
-      "https://cache.nixos.org"
-    ];
+    extra-substituters = [ "https://cache.nixos.org" ];
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
@@ -20,6 +18,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     actions-nix.url = "github:nialov/actions.nix";
   };
+
   outputs =
     inputs@{ flake-parts, systems, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -32,6 +31,7 @@
         inputs.treefmt-nix.flakeModule
         inputs.actions-nix.flakeModules.default
       ];
+
       perSystem =
         { pkgs, config, ... }:
         {
@@ -57,19 +57,20 @@
             ++ (pkgs.lib.attrValues config.treefmt.build.programs);
           };
 
-          pre-commit.settings.hooks = {
-            treefmt = {
-              enable = true;
-              package = config.treefmt.build.wrapper;
-            };
+          pre-commit.settings.hooks.treefmt = {
+            enable = true;
+            package = config.treefmt.build.wrapper;
           };
         };
+
       flake.actions-nix = {
         pre-commit.enable = true;
+
         defaultValues.jobs = {
           runs-on = "ubuntu-latest";
           timeout-minutes = 30;
         };
+
         workflows =
           let
             commonSteps = [
@@ -89,17 +90,13 @@
           in
           {
             ".github/workflows/nix-flake-check.yaml" = {
+              name = "Nix: Flake Check";
               on = {
-                push = {
-                  branches = [ "main" ];
-                };
+                push.branches = [ "main" ];
                 workflow_dispatch = null;
               };
               jobs.nix-flake-check = {
-                name = "Flake Check";
-                permissions = {
-                  contents = "read";
-                };
+                permissions.contents = "read";
                 steps = commonSteps ++ [
                   {
                     name = "Flake checker";
@@ -109,14 +106,13 @@
               };
             };
 
-            ".github/workflows/flake-lock-update.yaml" = {
-              name = "Flake Lock Update";
+            ".github/workflows/nix-flake-lock.yaml" = {
+              name = "Nix: Flake Lock";
               on = {
                 schedule = [ { cron = "0 8 * * 1,5"; } ];
                 workflow_dispatch = null;
               };
               jobs.nix-lock-update = {
-                name = "Update flake.lock";
                 permissions = {
                   contents = "write";
                   pull-requests = "write";
@@ -135,6 +131,5 @@
             };
           };
       };
-
     };
 }
