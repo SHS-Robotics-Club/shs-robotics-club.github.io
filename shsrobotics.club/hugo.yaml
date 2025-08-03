@@ -1,3 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://shsrobotics.club/
 languageCode: en-us
-title: My New Hugo Site
+title: SHS Robotics Club
+theme: ["PaperMod"]
