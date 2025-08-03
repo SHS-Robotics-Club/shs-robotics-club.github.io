@@ -1,10 +1,11 @@
 [![Flake Check](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-check.yaml/badge.svg)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-check.yaml)
 [![Flake Lock Update](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/flake-lock-update.yaml/badge.svg)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/flake-lock-update.yaml)
-![Built with Nix](https://img.shields.io/badge/built%20with-nix-5277C3?logo=nixos&logoColor=white)
-![Hugo](https://img.shields.io/badge/Hugo-extended%20%7C%20v0.124.1-blue?logo=hugo)
-[![Theme](https://img.shields.io/badge/theme-PaperMod-lightgrey)](https://github.com/adityatelange/hugo-PaperMod)
-[![License](https://img.shields.io/github/license/SHS-Robotics-Club/-shs-robotics-club.github.io)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/blob/main/LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/SHS-Robotics-Club/-shs-robotics-club.github.io)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/commits)
+[![Built with Nix](https://img.shields.io/badge/Built%20with-Nix-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
+[![Hugo](https://img.shields.io/badge/Hugo-v0.124-blue?logo=hugo)](https://gohugo.io/)
+[![Theme](https://img.shields.io/badge/Theme-PaperMod-2e3440)](https://github.com/adityatelange/hugo-PaperMod)
+[![License](https://img.shields.io/github/license/SHS-Robotics-Club/-shs-robotics-club.github.io?color=2e3440)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/SHS-Robotics-Club/-shs-robotics-club.github.io?color=2e3440)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/commits)
+
 
 # SHS Robotics Club Website
 
