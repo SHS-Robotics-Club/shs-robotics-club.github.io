@@ -60,7 +60,7 @@
           flakeCheck = false;
           programs = {
             actionlint.enable = true;
-            yamlfmt.enable = true;
+            #yamlfmt.enable = true;
             alejandra.enable = true;
             typos = {
               enable = true;
@@ -109,7 +109,7 @@
       };
 
       flake.actions-nix = {
-        pre-commit.enable = false;
+        pre-commit.enable = false; # nix run .#render-workflows
 
         defaultValues.jobs = {
           runs-on = "ubuntu-latest";

@@ -5,38 +5,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository Code
-        uses: actions/checkout@v4
-      - name: Install Nix Package Manager
-        uses: DeterminateSystems/nix-installer-action@main
-      - name: Cache Nix Dependencies
-        uses: DeterminateSystems/magic-nix-cache-action@main
-      - id: build
-        name: Execute Nix Build
-        run: nix build -L --accept-flake-config
-      - id: deployment
-        name: Upload Build Artifacts
-        uses: actions/upload-pages-artifact@main
-        with:
-          path: ./result/
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+    - name: Install Nix Package Manager
+      uses: DeterminateSystems/nix-installer-action@main
+    - name: Cache Nix Dependencies
+      uses: DeterminateSystems/magic-nix-cache-action@main
+    - id: build
+      name: Execute Nix Build
+      run: nix build -L --accept-flake-config
+    - id: deployment
+      name: Upload Build Artifacts
+      uses: actions/upload-pages-artifact@main
+      with:
+        path: ./result/
     timeout-minutes: 30
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     needs:
-      - build
+    - build
     runs-on: ubuntu-latest
     steps:
-      - id: deployment
-        name: Github Pages
-        uses: actions/deploy-pages@main
+    - id: deployment
+      name: Github Pages
+      uses: actions/deploy-pages@main
     timeout-minutes: 30
 name: 'Nix: Build'
 'on':
   push:
     branches:
-      - master
+    - master
   workflow_dispatch: null
 permissions:
   contents: read
