@@ -1,8 +1,9 @@
 baseURL: https://shsrobotics.club/
 languageCode: en-us
 title: SHS Robotics Club
-theme: PaperMod
+theme: ["PaperMod"]
 enableRobotsTXT: true
+enableGitInfo: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false

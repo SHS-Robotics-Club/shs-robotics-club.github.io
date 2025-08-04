@@ -43,7 +43,8 @@
           name = "shsroboticsclub";
           src = self;
           buildPhase = ''
-            ${pkgs.hugo}/bin/hugo -s ./shsrobotics.club
+            cd ./shsrobotics.club
+            ${pkgs.hugo}/bin/hugo
           '';
           installPhase = "cp -r public $out";
         };
@@ -75,6 +76,7 @@
             [
               pkgs.hugo
               pkgs.git
+              pkgs.go
               config.treefmt.build.wrapper
             ]
             ++ (pkgs.lib.attrValues config.treefmt.build.programs);
