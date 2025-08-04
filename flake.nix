@@ -202,14 +202,14 @@
                     {
                       name = "Execute Nix Build";
                       id = "build";
-                      run = "nix build -L --accept-flake-config";
+                      run = "nix build -L --accept-flake-config && ls -la";
                     }
                     {
                       name = "Upload Build Artifacts";
                       id = "deployment";
                       uses = "actions/upload-pages-artifact@main";
                       "with" = {
-                        path = "./results";
+                        path = "./shsrobotics.club/results/";
                       };
                     }
                   ];
