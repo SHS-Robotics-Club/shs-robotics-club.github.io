@@ -21,6 +21,7 @@
   outputs = inputs @ {
     flake-parts,
     systems,
+    self,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -38,6 +39,15 @@
         config,
         ...
       }: {
+        packages.shsroboticsclub = pkgs.stdenv.mkDerivation {
+          name = "shsroboticsclub";
+          src = self;
+          buildPhase = ''
+            ${pkgs.hugo}/bin/hugo -s ./shsrobotics.club
+          '';
+          installPhase = "cp -r public $out";
+        };
+
         treefmt.config = {
           inherit (config.flake-root) projectRootFile;
           flakeCheck = false;
