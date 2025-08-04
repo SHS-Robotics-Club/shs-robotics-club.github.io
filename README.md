@@ -36,7 +36,7 @@ You can install Hugo in one of two ways:
 
    ```bash
    git clone https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io.git
-   cd ./-shs-robotics-club.github.io
+   cd ./-SHS-robotics-club.github.io
    ```
 
 ### 3. Run Hugo
