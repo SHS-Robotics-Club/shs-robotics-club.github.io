@@ -1,5 +1,6 @@
 [![Flake Check](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-check.yaml/badge.svg)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-check.yaml)
 [![Flake Lock Update](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-lock.yaml/badge.svg)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-flake-lock.yaml)
+[![Flake Build](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-build-pages.yaml/badge.svg)](https://github.com/SHS-Robotics-Club/-shs-robotics-club.github.io/actions/workflows/nix-build-pages.yaml)
 [![Built with Nix](https://img.shields.io/badge/Built%20with-Nix-5277C3?logo=nixos&logoColor=white)](https://nixos.org/)
 [![Hugo](https://img.shields.io/badge/Hugo-v0.124-blue?logo=hugo)](https://gohugo.io/)
 [![Theme](https://img.shields.io/badge/Theme-PaperMod-2e3440)](https://github.com/adityatelange/hugo-PaperMod)
