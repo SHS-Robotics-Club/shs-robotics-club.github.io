@@ -125,6 +125,9 @@
             {
               name = "Install Nix Package Manager";
               uses = "DeterminateSystems/nix-installer-action@main";
+              "with" = {
+                extra_nix_config = "accept-flake-config = true";
+              };
             }
             {
               name = "Cache Nix Dependencies";
@@ -135,11 +138,11 @@
           ".github/workflows/nix-flake-check.yaml" = {
             name = "Nix: Flake Check";
             on = {
-              push.branches = ["main"];
+              push.branches = ["master"];
               workflow_dispatch = null;
             };
+            permissions.contents = "read";
             jobs.nix-flake-check = {
-              permissions.contents = "read";
               steps =
                 commonSteps
                 ++ [
@@ -179,8 +182,17 @@
           ".github/workflows/nix-build-pages.yaml" = {
             name = "Nix: Build";
             on = {
-              push.branches = ["main"];
+              push.branches = ["master"];
               workflow_dispatch = null;
+            };
+            permissions = {
+              contents = "read";
+              pages = "write";
+              id-token = "write";
+            };
+            concurrency = {
+              group = "pages";
+              cancel-in-progress = true;
             };
             jobs = {
               build = {

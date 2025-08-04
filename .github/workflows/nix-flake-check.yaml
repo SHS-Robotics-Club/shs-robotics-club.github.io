@@ -1,13 +1,13 @@
 jobs:
   nix-flake-check:
-    permissions:
-      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
       - name: Install Nix Package Manager
         uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra_nix_config: accept-flake-config = true
       - name: Cache Nix Dependencies
         uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Flake checker
@@ -17,5 +17,7 @@ name: 'Nix: Flake Check'
 'on':
   push:
     branches:
-      - main
+      - master
   workflow_dispatch: null
+permissions:
+  contents: read
