@@ -125,9 +125,6 @@
             {
               name = "Install Nix Package Manager";
               uses = "DeterminateSystems/nix-installer-action@main";
-              "with" = {
-                extra_nix_config = "accept-flake-config = true";
-              };
             }
             {
               name = "Cache Nix Dependencies";
@@ -202,14 +199,14 @@
                     {
                       name = "Execute Nix Build";
                       id = "build";
-                      run = "nix build -L --accept-flake-config && ls -la";
+                      run = "nix build -L --accept-flake-config";
                     }
                     {
                       name = "Upload Build Artifacts";
                       id = "deployment";
                       uses = "actions/upload-pages-artifact@main";
                       "with" = {
-                        path = "./shsrobotics.club/results/";
+                        path = "./result/";
                       };
                     }
                   ];
