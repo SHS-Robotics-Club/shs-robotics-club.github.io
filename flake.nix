@@ -16,6 +16,10 @@
     git-hooks-nix.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     actions-nix.url = "github:nialov/actions.nix";
+    papermod = {
+      url = "github:adityatelange/hugo-PaperMod";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -39,12 +43,14 @@
         config,
         ...
       }: {
-        packages.shsroboticsclub = pkgs.stdenv.mkDerivation {
+        packages.default = pkgs.stdenv.mkDerivation {
           name = "shsroboticsclub";
           src = self;
           buildPhase = ''
             cd ./shsrobotics.club
-            ${pkgs.hugo}/bin/hugo
+              mkdir -p themes
+              ln -s ${inputs.papermod} themes/PaperMod
+              ${pkgs.hugo}/bin/hugo
           '';
           installPhase = "cp -r public $out";
         };

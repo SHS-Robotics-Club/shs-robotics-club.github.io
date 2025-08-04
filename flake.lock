@@ -271,6 +271,22 @@
         "type": "github"
       }
     },
+    "papermod": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748062709,
+        "narHash": "sha256-XlxkAfGY59V5KqLoIJdxbHgtK4vqWXMn1GMaFchWhs8=",
+        "owner": "adityatelange",
+        "repo": "hugo-PaperMod",
+        "rev": "5a4651783fa9159123d947bd3511b355146d4797",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adityatelange",
+        "repo": "hugo-PaperMod",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "actions-nix": "actions-nix",
@@ -278,6 +294,7 @@
         "flake-root": "flake-root",
         "git-hooks-nix": "git-hooks-nix",
         "nixpkgs": "nixpkgs_3",
+        "papermod": "papermod",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       }
