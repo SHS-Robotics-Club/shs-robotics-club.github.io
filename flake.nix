@@ -119,15 +119,15 @@
         workflows = let
           commonSteps = [
             {
-              name = "Checkout repository";
+              name = "Checkout Repository Code";
               uses = "actions/checkout@v4";
             }
             {
-              name = "Nix installer";
+              name = "Install Nix Package Manager";
               uses = "DeterminateSystems/nix-installer-action@main";
             }
             {
-              name = "Magic Nix Cache";
+              name = "Cache Nix Dependencies";
               uses = "DeterminateSystems/magic-nix-cache-action@main";
             }
           ];
@@ -174,6 +174,48 @@
                     };
                   }
                 ];
+            };
+          };
+          ".github/workflows/nix-build-pages.yaml" = {
+            name = "Nix: Build";
+            on = {
+              push.branches = ["main"];
+              workflow_dispatch = null;
+            };
+            jobs = {
+              build = {
+                steps =
+                  commonSteps
+                  ++ [
+                    {
+                      name = "Execute Nix Build";
+                      id = "build";
+                      run = "nix build -L";
+                    }
+                    {
+                      name = "Upload Build Artifacts";
+                      id = "deployment";
+                      uses = "actions/upload-pages-artifact@main";
+                      "with" = {
+                        path = "shsrobotics.club/results";
+                      };
+                    }
+                  ];
+              };
+              deploy = {
+                environment = {
+                  name = "github-pages";
+                  url = "\${{ steps.deployment.outputs.page_url }}";
+                };
+                needs = ["build"];
+                steps = [
+                  {
+                    name = "Github Pages";
+                    id = "deployment";
+                    uses = "actions/deploy-pages@main";
+                  }
+                ];
+              };
             };
           };
         };
