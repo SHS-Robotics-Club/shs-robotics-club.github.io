@@ -3,18 +3,32 @@ languageCode: en-us
 title: SHS Robotics Club
 theme: ["PaperMod"]
 enableRobotsTXT: true
-enableGitInfo: true
+enableGitInfo: false
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 minify:
   disableXML: true
   minifyOutput: true
+
+defaultContentLanguage: en
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 params:
   description: "Seminole High School Robotics Club"
-  keywords: [Blog, Portfolio, PaperMod]
+  keywords: [Robotics, STEM, Competition, High School]
   author: SHS Robotics Club
-  defaultTheme: auto # dark, light
+  defaultTheme: auto
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -22,3 +36,24 @@ params:
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
+
+menu:
+  main:
+    - name: Blog
+      url: /blog/
+      weight: 1
+    - name: Gallery
+      url: /gallery/
+      weight: 2
+    - name: Robots
+      url: /robots/
+      weight: 3
+    - name: Team
+      url: /team/
+      weight: 4
+    - name: Awards
+      url: /awards/
+      weight: 5
+    - name: Scores
+      url: /scores/
+      weight: 6

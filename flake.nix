@@ -46,7 +46,9 @@
         packages.default = pkgs.stdenv.mkDerivation {
           name = "shsroboticsclub";
           src = self;
+          buildInputs = [pkgs.git];
           buildPhase = ''
+            export PATH=$PATH:${pkgs.git}/bin
             cd ./shsrobotics.club
               mkdir -p themes
               ln -s ${inputs.papermod} themes/PaperMod

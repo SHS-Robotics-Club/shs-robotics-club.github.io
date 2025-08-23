@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      {{- with .Params.year }}
+      <span>{{ . }}</span>
+      {{- end }}
+      {{- with .Params.competition }}
+      <span class="post-category">{{ . }}</span>
+      {{- end }}
+    </div>
+  </header>
+  <section class="post-content">
+    {{- if or .Params.dimensions .Params.weight .Params.motor .Params.battery }}
+    <h2>Specifications</h2>
+    <table class="specs-table">
+      {{- with .Params.dimensions }}
+      <tr><th>Dimensions</th><td>{{ . }}</td></tr>
+      {{- end }}
+      {{- with .Params.weight }}
+      <tr><th>Weight</th><td>{{ . }}</td></tr>
+      {{- end }}
+      {{- with .Params.motor }}
+      <tr><th>Motor</th><td>{{ . }}</td></tr>
+      {{- end }}
+      {{- with .Params.battery }}
+      <tr><th>Battery</th><td>{{ . }}</td></tr>
+      {{- end }}
+    </table>
+    {{- end }}
+    {{ .Content }}
+  </section>
+</article>
+{{- end }}

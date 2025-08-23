@@ -1,0 +1,39 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="post-meta">
+      <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+      <span>{{ .Params.event }}</span>
+      <span>Match {{ .Params.match_number }}</span>
+    </div>
+  </header>
+  <section class="post-content">
+    <h2>Match Result</h2>
+    <table class="match-table">
+      <tr>
+        <th>Team Score</th>
+        <td>{{ .Params.team_score }}</td>
+      </tr>
+      <tr>
+        <th>Opponent Score</th>
+        <td>{{ .Params.opponent_score }}</td>
+      </tr>
+      <tr>
+        <th>Result</th>
+        <td class="result-{{ .Params.result | lower }}">{{ .Params.result }}</td>
+      </tr>
+      {{- with .Params.ranking }}
+      <tr>
+        <th>Rank</th>
+        <td>#{{ . }}</td>
+      </tr>
+      {{- end }}
+    </table>
+    {{- with .Params.video_link }}
+    <p><a href="{{ . }}" target="_blank" rel="noopener">Watch Video</a></p>
+    {{- end }}
+    {{ .Content }}
+  </section>
+</article>
+{{- end }}
