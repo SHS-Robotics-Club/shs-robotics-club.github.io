@@ -128,10 +128,6 @@
               name = "Install Nix Package Manager";
               uses = "DeterminateSystems/nix-installer-action@main";
             }
-            {
-              name = "Cache Nix Dependencies";
-              uses = "DeterminateSystems/magic-nix-cache-action@main";
-            }
           ];
         in {
           ".github/workflows/nix-flake-check.yaml" = {

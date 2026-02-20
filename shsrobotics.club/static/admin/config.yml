@@ -129,13 +129,3 @@ collections:
         }
       - { label: Photo, name: photo, widget: image, required: false }
       - { label: Notes, name: body, widget: markdown, required: false }
-
-  - name: links
-    label: Quick Links
-    folder: content/links
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: Label, name: label, widget: string }
-      - { label: URL, name: url, widget: string }
-      - { label: Icon, name: icon, widget: string, required: false }

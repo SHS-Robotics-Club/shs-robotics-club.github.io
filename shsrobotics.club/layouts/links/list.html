@@ -7,13 +7,13 @@
 </header>
 
 <ul class="links-list">
-{{- range .Pages }}
+{{- range .Params.links }}
   <li>
-    <a href="{{ .Params.url }}" target="_blank" rel="noopener">
-      {{- with .Params.icon }}
+    <a href="{{ .url }}" target="_blank" rel="noopener">
+      {{- with .icon }}
       <i class="{{ . }}"></i>
       {{- end }}
-      {{ .Params.label }}
+      {{ .label }}
     </a>
   </li>
 {{- end }}
