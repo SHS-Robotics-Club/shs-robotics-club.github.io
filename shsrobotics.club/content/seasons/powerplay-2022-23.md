@@ -1,40 +1,50 @@
 ---
-title: "PowerPlay 2022-23"
-date: 2022-09-01
-year: "2022-23"
-competition: "PowerPlay"
-robot_name: "CrabBot Ultra"
-code_link: "https://github.com/SHS-Robotics-Club/powerplay-2022-23"
+title: PowerPlay 2022-23
+year: 2022-23
+competition: PowerPlay
+robot_name: CrabBot Ultra
 start_date: 2022-09-01
 end_date: 2023-04-15
-draft: false
-
-sponsors:
-  - name: "Seminole High School"
-  - name: "Advisory Committee"
-  - name: "Raytheon"
-  - name: "Lockheed Martin"
-  - name: "Pinellas County STEM"
-  - name: "TBTA"
-
-awards:
-  - { name: "Finalist Alliance", event: "FL Gulf Coast League Tournament" }
-  - { name: "Motivate Award 3rd Place", event: "FL Gulf Coast League Tournament" }
-  - { name: "Innovate Award", event: "Florida Championship" }
-  - { name: "Finalist Alliance 2nd Pick", event: "Florida Championship" }
-
-outreach:
-  - "Anona Elementary Science Night"
-  - "Largo Playcon"
-  - "STEM Explorer Fest"
-  - "Mentored Team 22532 The Phantom Menaces"
-  - "Mentored Team 3736 Serious Business"
-
+code_link: https://github.com/SHS-Robotics-Club/powerplay-2022-23
+summary: ''
 team_members:
-  - { name: "Quinn", role: "Team Captain", years: 4 }
-  - { name: "Cody", role: "Coach", years: 3 }
-  - { name: "Thomas", role: "Programmer & Build", years: 1 }
-  - { name: "John Carly", role: "Build & Outreach", years: 1 }
+  - name: Quinn
+    role: Programmer, Coach
+    years: 3
+    from_team: ''
+  - name: Cody
+    role: Engineer, Driver
+    years: 4
+    from_team: ''
+sponsors:
+  - name: Seminole High School
+    link: ''
+  - name: Advisory Committee
+    link: ''
+  - name: Raytheon
+    link: ''
+  - name: Lockheed Martin
+    link: ''
+  - name: Pinellas County STEM
+    link: ''
+  - name: TBTA
+awards:
+  - name: Finalist Alliance
+    event: FL Gulf Coast League Tournament
+  - name: Motivate Award 3rd Place
+    event: FL Gulf Coast League Tournament
+  - name: Innovate Award
+    event: Florida Championship
+  - name: Finalist Alliance 2nd Pick
+    event: Florida Championship
+outreach:
+  - Anona Elementary Science Night
+  - Largo Playcon
+  - STEM Explorer Fest
+  - Mentored Team 22532 The Phantom Menaces
+  - Mentored Team 3736 Serious Business
+draft: false
+date: 2022-09-01
 ---
 
 ## Season Summary
