@@ -1,6 +1,7 @@
 # Hugo
 public/
 result/
+result
 resources/_gen/
 hugo_stats.json
 
