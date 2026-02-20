@@ -127,8 +127,7 @@ collections:
       - { label: Code Repository, name: code_link, widget: string, required: false }
       - { label: Summary, name: summary, widget: text, required: false }
       - { label: Team Members, name: team_members, widget: list, required: false, fields: [{name: name, widget: string}, {name: role, widget: string}, {name: years, widget: number}, {name: from_team, widget: string, required: false}] }
-      - { label: Sponsors, name: sponsors, widget: list, required: false, fields: [{name: name, widget: string}, {name: tier, widget: string}] }
-      - { label: Events, name: events, widget: list, required: false, fields: [{name: name, widget: string}, {name: date, widget: date}, {name: result, widget: string}] }
+      - { label: Sponsors, name: sponsors, widget: list, required: false, fields: [{name: name, widget: string}, {name: link, widget: string, required: false}] }
       - { label: Awards, name: awards, widget: list, required: false, fields: [{name: name, widget: string}, {name: event, widget: string}] }
       - { label: Outreach, name: outreach, widget: list, required: false }
       - { label: Body, name: body, widget: markdown, required: false }
