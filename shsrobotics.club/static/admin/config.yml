@@ -122,8 +122,8 @@ collections:
       - { label: Year, name: year, widget: string, example: "2022-23" }
       - { label: Competition/Game, name: competition, widget: string }
       - { label: Robot Name, name: robot_name, widget: string, required: false }
-      - { label: Start Date, name: start_date, widget: date }
-      - { label: End Date, name: end_date, widget: date, required: false }
+      - { label: Start Date, name: start_date, widget: datetime, time_format: false }
+      - { label: End Date, name: end_date, widget: datetime, time_format: false, required: false }
       - { label: Code Repository, name: code_link, widget: string, required: false }
       - { label: Summary, name: summary, widget: text, required: false }
       - { label: Team Members, name: team_members, widget: list, required: false, fields: [{name: name, widget: string}, {name: role, widget: string}, {name: years, widget: number}, {name: from_team, widget: string, required: false}] }
