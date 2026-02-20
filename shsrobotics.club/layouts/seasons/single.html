@@ -40,8 +40,7 @@
       <ul class="team-list">
         {{- range . }}
         <li>
-          <strong>{{ .name }}</strong> - {{ .role }}
-          ({{ .years }}th year{{- with .from_team }}, from Team {{ . }}{{- end -}})
+          <strong>{{ .name }}</strong> - {{ .role }} ({{ .years }}th year)
         </li>
         {{- end }}
       </ul>
@@ -53,38 +52,9 @@
       <h2>Sponsors</h2>
       <ul class="sponsors-list">
         {{- range . }}
-        <li>
-          <strong>{{ .name }}</strong>
-          {{- with .tier }}
-          <span class="sponsor-tier">({{ . }})</span>
-          {{- end }}
-        </li>
+        <li>{{ .name }}</li>
         {{- end }}
       </ul>
-    </div>
-    {{- end }}
-
-    {{- with .Params.events }}
-    <div class="season-section events-section">
-      <h2>Competition Events</h2>
-      <table class="events-table">
-        <thead>
-          <tr>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{- range . }}
-          <tr>
-            <td>{{ .name }}</td>
-            <td>{{ .date | dateFormat "Jan 2, 2006" }}</td>
-            <td>{{ .result }}</td>
-          </tr>
-          {{- end }}
-        </tbody>
-      </table>
     </div>
     {{- end }}
 
@@ -93,10 +63,10 @@
       <h2>Awards</h2>
       <ul class="awards-list">
         {{- range . }}
-        <li>
+        <li class="award-item">
           <strong>{{ .name }}</strong>
           {{- with .event }}
-          - {{ . }}
+          <span class="award-event"> - {{ . }}</span>
           {{- end }}
         </li>
         {{- end }}
@@ -127,66 +97,105 @@
   margin-top: 0.5rem;
 }
 .badge {
-  padding: 0.25rem 0.75rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 1rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 .badge.year {
-  background: var(--primary);
-  color: var(--bg);
+  background: #2563eb;
+  color: #ffffff;
 }
 .badge.competition {
-  background: var(--secondary);
-  color: var(--bg);
+  background: #7c3aed;
+  color: #ffffff;
 }
 .badge.robot {
-  background: var(--tertiary);
+  background: #059669;
+  color: #ffffff;
 }
 .btn-code {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #24292e;
-  color: white;
+  padding: 0.6rem 1.2rem;
+  background: #1f2937;
+  color: #f9fafb;
   border-radius: 6px;
   text-decoration: none;
   margin-bottom: 1.5rem;
+  font-weight: 500;
+  border: 1px solid #374151;
 }
 .btn-code:hover {
-  background: #2f363d;
+  background: #374151;
 }
 .season-summary {
-  background: var(--entry);
-  padding: 1rem;
+  background: #f3f4f6;
+  padding: 1.25rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
+  border-left: 4px solid #2563eb;
+}
+:root:not(.dark) .season-summary {
+  background: #f9fafb;
+}
+.season-summary h2 {
+  margin-top: 0;
+  color: #111827;
 }
 .season-section {
   margin-bottom: 1.5rem;
+}
+.season-section h2 {
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
 }
 .team-list, .sponsors-list, .awards-list, .outreach-list {
   list-style: none;
   padding-left: 0;
 }
 .team-list li, .sponsors-list li {
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
 }
-.sponsor-tier {
-  color: var(--secondary);
-  font-size: 0.85rem;
+.team-list li strong {
+  color: #111827;
 }
-.events-table {
-  width: 100%;
-  border-collapse: collapse;
+.award-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
 }
-.events-table th, .events-table td {
-  padding: 0.5rem;
-  border: 1px solid var(--border-color);
-  text-align: left;
+.award-item strong {
+  color: #111827;
 }
-.events-table th {
-  background: var(--tertiary);
+.award-event {
+  color: #6b7280;
+}
+:root:not(.dark) .sponsor-tier,
+:root:not(.dark) .award-event {
+  color: #4b5563;
+}
+@media (prefers-color-scheme: dark) {
+  .season-summary {
+    background: #1f2937;
+    border-left-color: #3b82f6;
+  }
+  .season-summary h2,
+  .season-section h2,
+  .team-list li strong,
+  .award-item strong {
+    color: #f9fafb;
+  }
+  .team-list li, .sponsors-list li, .award-item {
+    border-bottom-color: #374151;
+    color: #d1d5db;
+  }
+  .award-event {
+    color: #9ca3af;
+  }
 }
 </style>
 {{- end }}

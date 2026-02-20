@@ -1,25 +1,46 @@
 ---
-title: "Robot 3123"
+title: "CrabBot Ultra"
 year: "2022-2023"
-competition: "FTC PowerPlay"
-dimensions: "18\" x 18\" x 18\""
-weight: "20 lbs"
-motor: "4x REV HD Hex Motors"
+competition: "PowerPlay"
+dimensions: "14.5\" x 15.5\""
+weight: "~20 lbs"
+motor: "4x GoBilda 312 rpm motors"
 battery: "REV Lithium Battery"
 draft: false
 ---
 
-## About Our Robot
+## About CrabBot Ultra
 
-Built for the 2022-2023 FTC PowerPlay season, Robot 3123 was designed to score points by placing cones on junction tiles and parking on the charging station.
+Our robot for the 2022-2023 FTC PowerPlay season was designed to score points by placing cones on junction tiles and parking on the charging station.
 
-## Design Highlights
+## Design Overview
 
-- **Intake**: 4-bar linkage cone intake with pivoting arms
-- **Elevator**: Dual-slide mechanism reaching 24"
-- **Scoring**: Ability to place cones on all junction heights
-- **Drive**: 6-wheel traction drive with 4 motorized wheels
+Our bot consists of multiple sub-assemblies and sensors:
 
-## Competition Results
+- **Drive-train (DT)**: The main chassis of the bot - four-motor, belt-driven mecanum drivetrain
+- **Drive Belts**: Connects the wheels to the motors (2:3 gear ratio)
+- **Odometry Pods**: Uses for tracking the position of the bot reliably
+- **Lift System**: 5 stages of Misumi linear slides driven by continuous string
+- **MGN12 Rail**: Separate lift stage that the claw is mounted to
+- **Magnetic Gearbox**: Used for managing the MGN12 rail
+- **Claw**: Used to grab game elements
 
-This robot competed in multiple qualifiers during the 2022-2023 season, helping the team earn awards and qualify for state competition.
+## Drivetrain
+
+We utilize a four-motor, belt-driven mecanum drivetrain, powered by 312 rpm GoBilda motors, with a 2:3 gear ratio on the belts. This configuration allows for increased speed and quick maneuvering, while maintaining silent and efficient operation. Coupled with our three dead wheel odometry system, our drivetrain provides accurate positioning during matches.
+
+We use fully 3D printed side shields to ensure nothing gets caught in our wheels.
+
+## Lift
+
+We opted to use 5 stages of Misumi linear slides driven by a continuous string wound on a spool. We use a combination of two strings on each side of the lift; one to control extension, and the other to control retraction. This use of double stringing ensures accurate positioning of the lift in addition to keeping tension on the string at all times so it cannot tangle.
+
+Reliable lift control is achieved through a PIDF loop that tracks the current and target position.
+
+## Claw
+
+Our claw was designed with simplicity and reliability in mind. We used a system of two counter-rotating servos and 3D printed claw pieces to effectively grab and place cones with ease.
+
+## Magnetic Gearbox
+
+We use a second-order magnetic gearbox to wind the string for our MGN rail when the lift retracts. The gear ratio is 2:1 (10 pole pairs input, 5 pole pairs output).

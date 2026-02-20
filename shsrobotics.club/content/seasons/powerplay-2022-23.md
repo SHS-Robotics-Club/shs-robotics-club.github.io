@@ -3,7 +3,7 @@ title: "PowerPlay 2022-23"
 date: 2022-09-01
 year: "2022-23"
 competition: "PowerPlay"
-robot_name: "Spontaneous Combustion"
+robot_name: "CrabBot Ultra"
 code_link: "https://github.com/SHS-Robotics-Club/powerplay-2022-23"
 start_date: 2022-09-01
 end_date: 2023-04-15
@@ -11,35 +11,17 @@ draft: false
 
 sponsors:
   - name: "Seminole High School"
-    tier: "school"
   - name: "Advisory Committee"
-    tier: "gold"
   - name: "Raytheon"
-    tier: "platinum"
   - name: "Lockheed Martin"
-    tier: "gold"
   - name: "Pinellas County STEM"
-    tier: "gold"
   - name: "TBTA"
-    tier: "support"
-
-events:
-  - name: "Season Scrimmage"
-    date: 2022-10-15
-    result: "Participated"
-  - name: "League Meet 1"
-    date: 2022-11-20
-    result: "Learning experience"
-  - name: "League Meet 3"
-    date: 2023-01-15
-    result: "Improved performance"
-  - name: "Gulf Coast League Tournament"
-    date: 2023-02-15
-    result: "Finalist Alliance"
 
 awards:
-  - name: "Finalist Alliance"
-    event: "Gulf Coast League Tournament"
+  - { name: "Finalist Alliance", event: "FL Gulf Coast League Tournament" }
+  - { name: "Motivate Award 3rd Place", event: "FL Gulf Coast League Tournament" }
+  - { name: "Innovate Award", event: "Florida Championship" }
+  - { name: "Finalist Alliance 2nd Pick", event: "Florida Championship" }
 
 outreach:
   - "Anona Elementary Science Night"
@@ -51,8 +33,8 @@ outreach:
 team_members:
   - { name: "Quinn", role: "Team Captain", years: 4 }
   - { name: "Cody", role: "Coach", years: 3 }
-  - { name: "Thomas", role: "Programmer & Build", years: 1, from_team: 3736 }
-  - { name: "John Carly", role: "Build & Outreach", years: 1, from_team: 3736 }
+  - { name: "Thomas", role: "Programmer & Build", years: 1 }
+  - { name: "John Carly", role: "Build & Outreach", years: 1 }
 ---
 
 ## Season Summary
@@ -77,14 +59,21 @@ We utilize a four-motor, belt-driven mecanum drivetrain, powered by 312 rpm GoBi
 
 ## Lift
 
-We opted to use 5 stages of Misumi linear slides driven by a continuous string wound on a spool. We use a combination of two strings on each side of the lift; one to control extension, and the other to control retraction. This use of double stringing ensures accurate positioning of the lift in addition to keeping tension on the string at all times so it cannot tangle.
+We opted to use 5 stages of Misumi linear slides driven by a continuous string wound on a spool. We use a combination of two strings on each side of the lift; one to control extension, and the other to retract. This use of double stringing ensures accurate positioning.
 
 ## Competition Results
 
 - **Scrimmage**: Exceeded expectations, basic claw and autonomous
-- **LM1**: Learned about time management, designed slide inserts
-- **LM3**: Added retract strings, lift sorted out
+- **League Meet 1**: Learned about time management, designed slide inserts
+- **League Meet 3**: Added retract strings, lift sorted out
 - **Gulf Coast League Tournament**: Selected as finalist alliance, gearbox issues in finals
+
+## Awards
+
+- **Finalist Alliance** - FL Gulf Coast League Tournament
+- **Motivate Award 3rd Place** - FL Gulf Coast League Tournament  
+- **Innovate Award** - Florida Championship
+- **Finalist Alliance 2nd Pick** - Florida Championship
 
 ## Outreach
 
