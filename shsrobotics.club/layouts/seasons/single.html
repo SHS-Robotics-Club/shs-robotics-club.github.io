@@ -1,0 +1,192 @@
+{{ define "main" }}
+<article class="season-single">
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
+    <div class="season-badges">
+      {{- with .Params.year }}
+      <span class="badge year">{{ . }}</span>
+      {{- end }}
+      {{- with .Params.competition }}
+      <span class="badge competition">{{ . }}</span>
+      {{- end }}
+      {{- with .Params.robot_name }}
+      <span class="badge robot">🤖 {{ . }}</span>
+      {{- end }}
+    </div>
+  </header>
+
+  <section class="post-content">
+    {{- with .Params.code_link }}
+    <div class="season-link">
+      <a href="{{ . }}" target="_blank" class="btn-code">
+        <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        View Code
+      </a>
+    </div>
+    {{- end }}
+
+    {{- with .Params.summary }}
+    <div class="season-summary">
+      <h2>Season Overview</h2>
+      <p>{{ . }}</p>
+    </div>
+    {{- end }}
+
+    {{- with .Params.team_members }}
+    <div class="season-section team-section">
+      <h2>Team Members</h2>
+      <ul class="team-list">
+        {{- range . }}
+        <li>
+          <strong>{{ .name }}</strong> - {{ .role }}
+          ({{ .years }}th year{{- with .from_team }}, from Team {{ . }}{{- end -}})
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .Params.sponsors }}
+    <div class="season-section sponsors-section">
+      <h2>Sponsors</h2>
+      <ul class="sponsors-list">
+        {{- range . }}
+        <li>
+          <strong>{{ .name }}</strong>
+          {{- with .tier }}
+          <span class="sponsor-tier">({{ . }})</span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .Params.events }}
+    <div class="season-section events-section">
+      <h2>Competition Events</h2>
+      <table class="events-table">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range . }}
+          <tr>
+            <td>{{ .name }}</td>
+            <td>{{ .date | dateFormat "Jan 2, 2006" }}</td>
+            <td>{{ .result }}</td>
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+    {{- end }}
+
+    {{- with .Params.awards }}
+    <div class="season-section awards-section">
+      <h2>Awards</h2>
+      <ul class="awards-list">
+        {{- range . }}
+        <li>
+          <strong>{{ .name }}</strong>
+          {{- with .event }}
+          - {{ . }}
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .Params.outreach }}
+    <div class="season-section outreach-section">
+      <h2>Outreach</h2>
+      <ul class="outreach-list">
+        {{- range . }}
+        <li>{{ . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{ .Content }}
+  </section>
+</article>
+
+<style>
+.season-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+.badge.year {
+  background: var(--primary);
+  color: var(--bg);
+}
+.badge.competition {
+  background: var(--secondary);
+  color: var(--bg);
+}
+.badge.robot {
+  background: var(--tertiary);
+}
+.btn-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #24292e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+.btn-code:hover {
+  background: #2f363d;
+}
+.season-summary {
+  background: var(--entry);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+.season-section {
+  margin-bottom: 1.5rem;
+}
+.team-list, .sponsors-list, .awards-list, .outreach-list {
+  list-style: none;
+  padding-left: 0;
+}
+.team-list li, .sponsors-list li {
+  padding: 0.25rem 0;
+}
+.sponsor-tier {
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.events-table th, .events-table td {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+.events-table th {
+  background: var(--tertiary);
+}
+</style>
+{{- end }}

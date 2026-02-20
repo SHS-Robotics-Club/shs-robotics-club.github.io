@@ -112,21 +112,23 @@ collections:
           field: { label: Member, name: member, widget: string },
         }
 
-  - name: awards
-    label: Awards
-    folder: shsrobotics.club/content/awards
+  - name: seasons
+    label: Seasons
+    folder: shsrobotics.club/content/seasons
     create: true
-    slug: "{{year}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime }
-      - { label: Competition, name: competition, widget: string }
-      - { label: Placement, name: placement, widget: string }
-      - {
-          label: Team Members,
-          name: team_members,
-          widget: list,
-          required: false,
-        }
-      - { label: Photo, name: photo, widget: image, required: false }
-      - { label: Notes, name: body, widget: markdown, required: false }
+      - { label: Title, name: title, widget: string, default: "Season" }
+      - { label: Year, name: year, widget: string, example: "2022-23" }
+      - { label: Competition/Game, name: competition, widget: string }
+      - { label: Robot Name, name: robot_name, widget: string, required: false }
+      - { label: Start Date, name: start_date, widget: date }
+      - { label: End Date, name: end_date, widget: date, required: false }
+      - { label: Code Repository, name: code_link, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Team Members, name: team_members, widget: list, required: false, fields: [{name: name, widget: string}, {name: role, widget: string}, {name: years, widget: number}, {name: from_team, widget: string, required: false}] }
+      - { label: Sponsors, name: sponsors, widget: list, required: false, fields: [{name: name, widget: string}, {name: tier, widget: string}] }
+      - { label: Events, name: events, widget: list, required: false, fields: [{name: name, widget: string}, {name: date, widget: date}, {name: result, widget: string}] }
+      - { label: Awards, name: awards, widget: list, required: false, fields: [{name: name, widget: string}, {name: event, widget: string}] }
+      - { label: Outreach, name: outreach, widget: list, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }

@@ -13,6 +13,14 @@ minify:
 
 defaultContentLanguage: en
 
+mainSections:
+  - blog
+  - seasons
+  - robots
+  - team
+  - gallery
+  - links
+
 taxonomies:
   category: categories
   tag: tags
@@ -51,8 +59,8 @@ menu:
     - name: Team
       url: /team/
       weight: 4
-    - name: Awards
-      url: /awards/
+    - name: Seasons
+      url: /seasons/
       weight: 5
     - name: Links
       url: /links/

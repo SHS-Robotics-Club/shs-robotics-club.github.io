@@ -1,0 +1,92 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <p class="page-description">{{ .Description }}</p>
+  {{- end }}
+</header>
+
+<div class="seasons-list">
+{{- range .Pages.ByParam "start_date" }}
+  <article class="season-card">
+    <header class="season-header">
+      <h2>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      <span class="season-year">{{ .Params.year }}</span>
+    </header>
+    <div class="season-meta">
+      {{- with .Params.competition }}
+      <span class="competition">{{ . }}</span>
+      {{- end }}
+      {{- with .Params.robot_name }}
+      <span class="robot">🤖 {{ . }}</span>
+      {{- end }}
+    </div>
+    {{- with .Params.summary }}
+    <p class="season-summary">{{ . }}</p>
+    {{- end }}
+    {{- with .Params.events }}
+    <div class="season-events">
+      <strong>Events:</strong>
+      {{- range . }}
+      <span class="event">{{ .name }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+    <footer class="season-footer">
+      <a href="{{ .Permalink }}">View season &rarr;</a>
+    </footer>
+  </article>
+{{- end }}
+</div>
+
+<style>
+.seasons-list {
+  display: grid;
+  gap: 1.5rem;
+}
+.season-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.season-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.season-header h2 {
+  margin: 0;
+}
+.season-year {
+  color: var(--secondary);
+  font-weight: bold;
+}
+.season-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.season-meta span {
+  background: var(--tertiary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+.season-summary {
+  margin-bottom: 1rem;
+}
+.season-events {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+.season-events .event::after {
+  content: ",";
+}
+.season-events .event:last-child::after {
+  content: "";
+}
+</style>
+{{- end }}
