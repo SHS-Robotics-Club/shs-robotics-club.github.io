@@ -6,7 +6,7 @@ backend:
   name: github
   repo: SHS-Robotics-Club/shs-robotics-club.github.io
   branch: master
-  base_url: https://YOUR-CLOUDFLARE-WORKER.workers.dev
+  base_url: https://shs-robotics-cms-auth.neochaotics.workers.dev
   auth_endpoint: oauth
 
 media_folder: static/images
@@ -26,7 +26,12 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime }
       - { label: Author, name: author, widget: string, default: "" }
-      - { label: Featured Image, name: featured_image, widget: image, required: false }
+      - {
+          label: Featured Image,
+          name: featured_image,
+          widget: image,
+          required: false,
+        }
       - { label: Tags, name: tags, widget: list, required: false }
       - { label: Body, name: body, widget: markdown }
 
@@ -51,7 +56,12 @@ collections:
       - { label: Name, name: title, widget: string }
       - { label: Year, name: year, widget: string, default: "2025-2026" }
       - { label: Competition, name: competition, widget: string }
-      - { label: Featured Image, name: featured_image, widget: image, required: false }
+      - {
+          label: Featured Image,
+          name: featured_image,
+          widget: image,
+          required: false,
+        }
       - { label: Dimensions, name: dimensions, widget: string, required: false }
       - { label: Weight, name: weight, widget: string, required: false }
       - { label: Motor, name: motor, widget: string, required: false }
@@ -66,11 +76,40 @@ collections:
     fields:
       - { label: Title, name: title, widget: string, default: "Team Roster" }
       - { label: School Year, name: year, widget: string, default: "2025-2026" }
-      - { label: Featured Image, name: featured_image, widget: image, required: false }
-      - { label: Leadership, name: leadership, widget: list, required: false, field: { label: Member, name: member, widget: string } }
-      - { label: Build Team, name: build_team, widget: list, required: false, field: { label: Member, name: member, widget: string } }
-      - { label: Programming Team, name: programming_team, widget: list, required: false, field: { label: Member, name: member, widget: string } }
-      - { label: Outreach Team, name: outreach_team, widget: list, required: false, field: { label: Member, name: member, widget: string } }
+      - {
+          label: Featured Image,
+          name: featured_image,
+          widget: image,
+          required: false,
+        }
+      - {
+          label: Leadership,
+          name: leadership,
+          widget: list,
+          required: false,
+          field: { label: Member, name: member, widget: string },
+        }
+      - {
+          label: Build Team,
+          name: build_team,
+          widget: list,
+          required: false,
+          field: { label: Member, name: member, widget: string },
+        }
+      - {
+          label: Programming Team,
+          name: programming_team,
+          widget: list,
+          required: false,
+          field: { label: Member, name: member, widget: string },
+        }
+      - {
+          label: Outreach Team,
+          name: outreach_team,
+          widget: list,
+          required: false,
+          field: { label: Member, name: member, widget: string },
+        }
 
   - name: awards
     label: Awards
@@ -82,7 +121,12 @@ collections:
       - { label: Date, name: date, widget: datetime }
       - { label: Competition, name: competition, widget: string }
       - { label: Placement, name: placement, widget: string }
-      - { label: Team Members, name: team_members, widget: list, required: false }
+      - {
+          label: Team Members,
+          name: team_members,
+          widget: list,
+          required: false,
+        }
       - { label: Photo, name: photo, widget: image, required: false }
       - { label: Notes, name: body, widget: markdown, required: false }
 
@@ -99,6 +143,11 @@ collections:
       - { label: Team Score, name: team_score, widget: number }
       - { label: Opponent Score, name: opponent_score, widget: number }
       - { label: Ranking, name: ranking, widget: number, required: false }
-      - { label: Win/Loss, name: result, widget: select, options: ["Win", "Loss", "Tie"] }
+      - {
+          label: Win/Loss,
+          name: result,
+          widget: select,
+          options: ["Win", "Loss", "Tie"],
+        }
       - { label: Video Link, name: video_link, widget: string, required: false }
       - { label: Notes, name: body, widget: markdown, required: false }
