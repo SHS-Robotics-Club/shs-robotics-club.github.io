@@ -9,8 +9,6 @@ jobs:
       uses: actions/checkout@v4
     - name: Install Nix Package Manager
       uses: DeterminateSystems/nix-installer-action@main
-    - name: Cache Nix Dependencies
-      uses: DeterminateSystems/magic-nix-cache-action@main
     - name: Update flake.lock
       uses: DeterminateSystems/update-flake-lock@main
       with:

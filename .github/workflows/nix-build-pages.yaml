@@ -9,8 +9,6 @@ jobs:
       uses: actions/checkout@v4
     - name: Install Nix Package Manager
       uses: DeterminateSystems/nix-installer-action@main
-    - name: Cache Nix Dependencies
-      uses: DeterminateSystems/magic-nix-cache-action@main
     - id: build
       name: Execute Nix Build
       run: nix build -L --accept-flake-config
