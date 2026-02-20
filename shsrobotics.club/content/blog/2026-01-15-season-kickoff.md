@@ -1,17 +1,24 @@
 ---
-title: "Season Kickoff 2026"
-date: 2026-01-15
-author: Coach Smith
-tags: ["season", "kickoff", "competition"]
+title: "PowerPlay Season Kickoff"
+date: 2022-09-10
+author: Team Captain
+tags: ["season", "kickoff", "powerplay"]
 draft: false
 ---
 
-Today marks the beginning of the 2026 competition season! The game reveal was exciting, and our team is already brainstorming strategies.
+The 2022-2023 FTC PowerPlay season is here! Our team gathered to watch the game reveal and start brainstorming our robot design.
 
-## Key Objectives This Season
+## About PowerPlay
 
-1. Improve autonomous code reliability
-2. Build a more durable intake mechanism
-3. Increase driver practice hours
+In this season, robots score points by:
+- Placing cones on junction tiles
+- Parking on the charging station
+- Completing autonomous and driver-controlled tasks
 
-The team met for 4 hours after school to brainstorm and start CAD designs. Great energy from everyone!
+## Our Initial Concepts
+
+1. **4-bar linkage intake** for picking up cones
+2. **Sliding elevator** for reaching different junction heights
+3. **Tank vs mecanum drive** - still deciding
+
+The team spent the afternoon brainstorming and sketching initial ideas. We'll begin CAD work next week!

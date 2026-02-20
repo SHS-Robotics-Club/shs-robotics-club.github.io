@@ -1,30 +1,27 @@
 ---
-title: "Welcome to SHS Robotics Club"
-date: 2026-02-20
-author: Club President
+title: "Welcome to SHS Robotics"
+description: "FTC Team 3123 - Seminole High School"
 draft: false
 ---
 
-Welcome to the Seminole High School Robotics Club! We're a team of students passionate about engineering, programming, and competition.
-
-## Our Mission
-
-To inspire students to pursue careers in STEM through hands-on robotics education and competitive excellence.
+We are **FTC Team 3123** from Seminole High School, competing in the **2022-2023 FTC PowerPlay** season. Our team of students designs, builds, and programs robots to compete in the FIRST Tech Challenge.
 
 ## What We Do
 
-- **Build** competitive robots for VEX/FRC competitions
-- **Program** autonomous and driver-controlled systems
-- **Design** innovative solutions to real-world challenges
-- **Compete** regionally and nationally
+- Design and build competitive robots for FTC competitions
+- Program autonomous and driver-controlled systems
+- Learn engineering, programming, and teamwork skills
+- Compete regionally to earn advancement to state and national events
 
-## Recent Updates
+## Competition Season
 
-Check out our [blog](/blog/) for the latest news, follow our journey in the [gallery](/gallery/), and see our competition results on the [scores](/scores/) page.
+The 2022-2023 FTC PowerPlay season challenges teams to score points by placing cones on junction tiles and parking robots on the charging station. Our robot features a **4-bar linkage intake system**, **dual-slide elevator**, and **traction wheel drive base**.
 
-## Join Us
+## Get Involved
 
-Meeting times: Every Tuesday & Thursday, 3:30 PM - 6:00 PM  
-Location: Room 204 (Engineering Lab)
+Interested in joining the team? We welcome new members of all skill levels. No prior experience required!
 
-Contact: robotics@shsrobotics.club
+**Meeting Times:** Tuesdays & Thursdays, 3:30 PM - 6:00 PM  
+**Location:** Room 204 (Engineering Lab)
+
+Contact us to learn more about getting involved with SHS Robotics.

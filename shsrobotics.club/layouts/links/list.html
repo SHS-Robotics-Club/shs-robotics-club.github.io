@@ -1,0 +1,21 @@
+{{ define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <p class="page-description">{{ .Description }}</p>
+  {{- end }}
+</header>
+
+<ul class="links-list">
+{{- range .Pages }}
+  <li>
+    <a href="{{ .Params.url }}" target="_blank" rel="noopener">
+      {{- with .Params.icon }}
+      <i class="{{ . }}"></i>
+      {{- end }}
+      {{ .Params.label }}
+    </a>
+  </li>
+{{- end }}
+</ul>
+{{- end }}

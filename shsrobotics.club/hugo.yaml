@@ -54,6 +54,6 @@ menu:
     - name: Awards
       url: /awards/
       weight: 5
-    - name: Scores
-      url: /scores/
+    - name: Links
+      url: /links/
       weight: 6

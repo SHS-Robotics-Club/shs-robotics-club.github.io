@@ -45,7 +45,7 @@ collections:
       - { label: Date, name: date, widget: datetime }
       - { label: Category, name: category, widget: string, required: false }
       - { label: Description, name: description, widget: text, required: false }
-      - { label: Images, name: images, widget: image, allow_multiple: true }
+      - { label: Images, name: images, widget: image, multiple: true }
 
   - name: robots
     label: Robots
@@ -130,24 +130,12 @@ collections:
       - { label: Photo, name: photo, widget: image, required: false }
       - { label: Notes, name: body, widget: markdown, required: false }
 
-  - name: scores
-    label: Match Scores
-    folder: content/scores
+  - name: links
+    label: Quick Links
+    folder: content/links
     create: true
-    slug: "{{year}}-{{event}}-{{match_number}}"
+    slug: "{{slug}}"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime }
-      - { label: Event, name: event, widget: string }
-      - { label: Match Number, name: match_number, widget: string }
-      - { label: Team Score, name: team_score, widget: number }
-      - { label: Opponent Score, name: opponent_score, widget: number }
-      - { label: Ranking, name: ranking, widget: number, required: false }
-      - {
-          label: Win/Loss,
-          name: result,
-          widget: select,
-          options: ["Win", "Loss", "Tie"],
-        }
-      - { label: Video Link, name: video_link, widget: string, required: false }
-      - { label: Notes, name: body, widget: markdown, required: false }
+      - { label: Label, name: label, widget: string }
+      - { label: URL, name: url, widget: string }
+      - { label: Icon, name: icon, widget: string, required: false }
