@@ -6,8 +6,8 @@ backend:
   name: github
   repo: SHS-Robotics-Club/shs-robotics-club.github.io
   branch: master
-  base_url: https://shs-robotics-cms-auth.neochaotics.workers.dev
-  auth_endpoint: auth
+  # For direct login without OAuth, use a Personal Access Token
+  # See: https://sveltiacms.app/docs/backends/github#access-token
 
 media_folder: static/images
 public_folder: /images
