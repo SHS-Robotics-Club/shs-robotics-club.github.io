@@ -4,7 +4,7 @@ title: SHS Robotics Club
 theme: ["PaperMod"]
 enableRobotsTXT: true
 enableGitInfo: false
-buildDrafts: false
+buildDrafts: true
 buildFuture: false
 buildExpired: false
 minify:

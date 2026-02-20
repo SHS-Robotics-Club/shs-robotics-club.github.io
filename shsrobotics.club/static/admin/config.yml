@@ -10,7 +10,7 @@ backend:
   base_url: https://shs-robotics-cms-auth.neochaotics.workers.dev
   auth_endpoint: auth
 
-media_folder: static/images
+media_folder: shsrobotics.club/static/images
 public_folder: /images
 
 slug:
@@ -20,7 +20,7 @@ slug:
 collections:
   - name: blog
     label: Blog Posts
-    folder: content/blog
+    folder: shsrobotics.club/content/blog
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -38,7 +38,7 @@ collections:
 
   - name: gallery
     label: Photo Galleries
-    folder: content/gallery
+    folder: shsrobotics.club/content/gallery
     create: true
     slug: "{{year}}-{{slug}}"
     fields:
@@ -50,7 +50,7 @@ collections:
 
   - name: robots
     label: Robots
-    folder: content/robots
+    folder: shsrobotics.club/content/robots
     create: true
     slug: "{{year}}-{{slug}}"
     fields:
@@ -71,7 +71,7 @@ collections:
 
   - name: team
     label: Team Rosters
-    folder: content/team
+    folder: shsrobotics.club/content/team
     create: true
     slug: "{{slug}}"
     fields:
@@ -114,7 +114,7 @@ collections:
 
   - name: awards
     label: Awards
-    folder: content/awards
+    folder: shsrobotics.club/content/awards
     create: true
     slug: "{{year}}-{{slug}}"
     fields:
