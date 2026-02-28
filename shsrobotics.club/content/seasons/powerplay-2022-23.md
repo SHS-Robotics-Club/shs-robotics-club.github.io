@@ -17,9 +17,7 @@ team_members:
     years: 4
     from_team: ''
 sponsors:
-  - name: Seminole High School
-    link: ''
-  - name: Advisory Committee
+  - name: Seminole High School Advisory Committee
     link: ''
   - name: Raytheon
     link: ''
@@ -28,6 +26,7 @@ sponsors:
   - name: Pinellas County STEM
     link: ''
   - name: TBTA
+    link: ''
 awards:
   - name: Finalist Alliance
     event: FL Gulf Coast League Tournament
@@ -81,10 +80,6 @@ We opted to use 5 stages of Misumi linear slides driven by a continuous string w
 ## Awards
 
 - **Finalist Alliance** - FL Gulf Coast League Tournament
-- **Motivate Award 3rd Place** - FL Gulf Coast League Tournament  
+- **Motivate Award 3rd Place** - FL Gulf Coast League Tournament
 - **Innovate Award** - Florida Championship
 - **Finalist Alliance 2nd Pick** - Florida Championship
-
-## Outreach
-
-We participated in various events including Anona Elementary's Science Night, Largo Playcon, and STEM Explorer Fest. We also mentored Team 22532 The Phantom Menaces and our sister team 3736 Serious Business.
