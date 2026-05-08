@@ -1,11 +1,12 @@
 ---
-title: "CrabBot Ultra"
-year: "2022-2023"
-competition: "PowerPlay"
-dimensions: "14.5\" x 15.5\""
-weight: "~20 lbs"
-motor: "4x GoBilda 312 rpm motors"
-battery: "REV Lithium Battery"
+title: CrabBot Ultra
+year: 2022-2023
+competition: PowerPlay
+featured_image: /images/27676.jpg
+dimensions: 14.5" x 15.5"
+weight: ~20 lbs
+motor: 4x GoBilda 312 rpm motors
+battery: REV Lithium Battery
 draft: false
 ---
 
